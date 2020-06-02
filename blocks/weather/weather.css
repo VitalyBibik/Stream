@@ -1,0 +1,15 @@
+@import url('./__pressure/weather__pressure.css');
+@import url('./__temp/weather__temp.css');
+@import url('./__time/weather__time.css');
+@import url('./__title/weather__title.css');
+@import url('./__type/weather__type.css');
+@import url('./__wind/weather__wind.css');
+
+
+.weather{
+    display: block;
+    padding: 0;
+    list-style-type:none;
+    text-align: center;
+    margin-top:60px;
+}

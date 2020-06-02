@@ -1,0 +1,7 @@
+@import url('./__container/form__container.css');
+@import url('./__city/form__city.css');
+@import url('./__button/form__button.css');
+.form{
+    text-align: center;
+    padding-top: 200px;
+}
