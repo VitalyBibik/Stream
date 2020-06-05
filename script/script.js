@@ -1,6 +1,11 @@
 const config = {
     key:'e7e013145e8f764392b0517c2ab23d80'
 };
+const options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0
+};
 
 /* html info  start */
 
@@ -25,9 +30,9 @@ function sendCity (event) {
     const inputValue = document.querySelector('#searchValue').value;
     getWeatherCity(inputValue)
         .then((data)=> {
-            console.log(data,'data');
+            console.log(data,'data button input');
             weatherTitle.textContent = `Город: ${data.name}`;
-            weatherTemp.textContent = `Темпмература: ${ Math.floor(data.main.temp - 272)}`;
+            weatherTemp.textContent = `Темпмература: ${ Math.floor(data.main.temp)}`;
             weatherPressure.textContent = `Давление: ${data.main.pressure}`;
             weatherWind.textContent = `Скорость ветра: ${data.wind.speed} mph`;
             weatherType.textContent = `Тип погоды: ${data.weather[0]['description']}`;
@@ -47,7 +52,7 @@ function sendCity (event) {
 
 
 function getWeatherCity(city) {
-    return  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${config.key}&lang=ru`)
+    return  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${config.key}&lang=ru`)
         .then(res => {
             if (res.ok) {
                 return res.json()
@@ -72,6 +77,48 @@ function getTime(city){
             console.log(err);
         });
 }
+// next code use in geolocation TODO
+
+function getGeoWeather(lat,lon){
+    return  fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&lang=RU&exclude=hourly,daily&appid=${config.key}`)
+        .then(res => {
+            if (res.ok) {
+                return res.json()
+            }
+            return Promise.reject(`Что то пошло не так ${res.status}`)
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+
+}
+function success(pos) {
+    const crd = pos.coords;
+    console.log('Ваше текущее метоположение:');
+    console.log(`Широта: ${crd.latitude}`);
+    console.log(`Долгота: ${crd.longitude}`);
+    console.log(`Плюс-минус ${crd.accuracy} метров.`);
+    getGeoWeather(crd.latitude, crd.longitude)
+        .then((data) => {
+          console.log('geolocation weather data', data);
+            weatherTime.textContent = ''; // TODO need time
+            weatherTitle.textContent = `Город: ${data.timezone}`;
+            weatherTemp.textContent = `Темпмература: ${data.current.temp}`;
+            weatherPressure.textContent = `Давление: ${data.current.pressure}`;
+            weatherWind.textContent = `Скорость ветра: ${data.current.wind_speed} mph`;
+            weatherType.textContent = `Тип погоды: ${data.current.weather[0]['description']}`;
+        })
+        .catch((err) => console.log(`Что то пошло не так с геолокацией ${err}`));
+}
+
+function error(err) {
+    console.warn(`ERROR(${err.code}): ${err.message}`);
+}
+
+navigator.geolocation.getCurrentPosition(success, error, options);
 
 
+
+
+// Слушатели
 buttonSearch.addEventListener('click', sendCity );
