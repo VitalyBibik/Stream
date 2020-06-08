@@ -1,38 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="./vendor/normalize.css">
-    <link rel="stylesheet" href="./pages/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.chunks.main.css %>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Week stream</title>
 </head>
 <body class="body-style">
+<img class="super">
 <div class="parent">
     <div class="form" id="searchForm">
-        <div class="form__container">
             <input required type="text" name="searchValue" class="form__city" placeholder="Введите свой город EN" id="searchValue">
-            <button class="button form__button" id="search"></button>
-        </div>
+            <div class="form__button">
+                <button class="button" id="search"></button>
+            </div>
     </div>
 </div>
 <ul class="weather">
-    <li class="weather__title">Город</li>
-    <li class="weather__time">Время</li>
-    <li class="weather__temp">Температура </li>
-    <li class="weather__pressure">Атмосферное давление</li>
-    <li class="weather__wind">Скорость ветра</li>
-    <li class="weather__type">Тип погоды</li>
+    <li class="weather__title">Город:</li>
+    <li class="weather__temp">Температура: </li>
+    <li class="weather__pressure">Давление:</li>
+    <li class="weather__wind">Скорость ветра:</li>
+    <li class="weather__type">Тип погоды:</li>
+    <img class="weather__img" src="http://openweathermap.org/img/wn/10d@2x.png">
 </ul>
-<div class="week">
-    <div class="week__days">Понедельник</div>
-    <div class="week__days">Вторник</div>
-    <div class="week__days">Среда</div>
-    <div class="week__days">Четверг</div>
-    <div class="week__days">Пятница</div>
-    <div class="week__days">Суббота</div>
-    <div class="week__days">Воскресенье</div>
+<div class="geo">
+    <h2 class="geo__title">Геолокация</h2>
+    <button class="button geo__button" id="searchGeo"></button>
 </div>
-<script src="./script/script.js">
-</script>
+
+<script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
+
 </body>
 </html>
