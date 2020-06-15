@@ -6,8 +6,72 @@
 
 
 
-.super{
-    z-index: -1;
-    max-width: 425px;
-    position: absolute;
+.box-small{
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 90%;
+    margin: 0 auto;
+}
+.box-item:nth-child(1){
+    flex-grow: .5;
+    text-align:inherit;
+}
+.box-item{
+    text-align: center;
+}
+.box-big__image{
+    width: 100%;
+    border-top-left-radius:25px;
+    border-top-right-radius:25px;
+}
+/* forma */
+.box-big__form{
+    padding-left: 4rem;
+    padding-top: 4rem;
+}
+
+/* time */
+.box-item__time{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 4rem;
+}
+/* button */
+.box-big__button{
+margin-right: 4rem;
+}
+
+/* box big */
+.info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.info__city{
+    margin-right: 2rem;
+   margin-bottom: 0;
+}
+.info__time{
+    margin-right: 2rem;
+}
+.info__clock{
+    width: 50px;
+    margin-right: 2rem;
+}
+.info__map{
+    width: 20px;
+    padding-left: 15px;
+
+}
+/* container */
+.container{
+    max-width: 90%;
+    background-color: yellow;
+}
+
+/* form */
+.form__city{
+    background-color: transparent;
+    border:none;
+    font-size: 3rem;
 }

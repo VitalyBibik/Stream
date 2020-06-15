@@ -7,12 +7,16 @@
     max-width: 1440px;
     position: relative;
     margin: 0;
-
-
+    background-repeat: no-repeat;
 }
 
 @media screen and (max-width: 425px) and (min-width: 325px) {
     body {
         font-size: 60px;
+        font-family: sans-serif;
     }
+}
+.body-style__container{
+    margin: 4rem auto;
+    border-radius: 25px;
 }
