@@ -1,0 +1,6 @@
+.box-small{
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 90%;
+    margin: 0 auto;
+}

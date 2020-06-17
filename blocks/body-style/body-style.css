@@ -1,3 +1,5 @@
+@import url('./__container/body-style__container.css');
+
 .body-style{
     background-image: url("https://avatanplus.com/files/resources/original/585ff20fda9df15936c98e17.jpg");
    /* filter: blur(3px); */
@@ -6,7 +8,7 @@
     color:#D2691E;
     max-width: 1440px;
     position: relative;
-    margin: 0;
+    margin: 0 auto;
     background-repeat: no-repeat;
 }
 
@@ -15,8 +17,4 @@
         font-size: 60px;
         font-family: sans-serif;
     }
-}
-.body-style__container{
-    margin: 4rem auto;
-    border-radius: 25px;
 }

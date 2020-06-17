@@ -3,75 +3,24 @@
 @import url('../blocks/button/button.css');
 @import url('../blocks/weather/weather.css');
 @import url('../blocks/geo/geo.css');
+@import url('../blocks/container/container.css');
+@import url('../blocks/box-big/box-big.css');
+@import url('../blocks/box-item/box-item.css');
+@import url('../blocks/box-small/box-small.css');
+@import url('../blocks/info/info.css');
 
-
-
-.box-small{
-    display: flex;
-    justify-content: space-evenly;
-    max-width: 90%;
-    margin: 0 auto;
+.test{
 }
-.box-item:nth-child(1){
-    flex-grow: .5;
-    text-align:inherit;
-}
-.box-item{
-    text-align: center;
-}
-.box-big__image{
-    width: 100%;
-    border-top-left-radius:25px;
-    border-top-right-radius:25px;
-}
-/* forma */
-.box-big__form{
-    padding-left: 4rem;
-    padding-top: 4rem;
-}
-
-/* time */
-.box-item__time{
-    display: flex;
-    justify-content: flex-end;
-    padding-right: 4rem;
-}
-/* button */
-.box-big__button{
-margin-right: 4rem;
-}
-
-/* box big */
-.info{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-.info__city{
-    margin-right: 2rem;
-   margin-bottom: 0;
-}
-.info__time{
-    margin-right: 2rem;
-}
-.info__clock{
-    width: 50px;
-    margin-right: 2rem;
-}
-.info__map{
-    width: 20px;
-    padding-left: 15px;
+.test:nth-child(1) .box-item__temp_big{
+    font-size: 10rem;
+    margin: 0;
 
 }
-/* container */
-.container{
-    max-width: 90%;
-    background-color: yellow;
-}
-
-/* form */
-.form__city{
-    background-color: transparent;
-    border:none;
+.test:nth-child(1) .box-item__day_more{
     font-size: 3rem;
+    margin: 0;
+
+}
+.test1{
+text-align: center;
 }
