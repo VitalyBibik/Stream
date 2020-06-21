@@ -1,4 +1,9 @@
 .body-style__container{
     margin: 4rem auto;
     border-radius: 25px;
+    box-shadow: 1px 1px 33px 30px rgba(34, 60, 80, 0.32);
+}
+.body-style__container:hover{
+    box-shadow: 1px 1px 33px 30px rgba(34, 60, 80, 1);
+    transition: 0.8s 0.1s ease;
 }

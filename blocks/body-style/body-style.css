@@ -1,15 +1,14 @@
 @import url('./__container/body-style__container.css');
 
-.body-style{
-    background-image: url("https://avatanplus.com/files/resources/original/585ff20fda9df15936c98e17.jpg");
-   /* filter: blur(3px); */
+.body-style {
+    background: linear-gradient(90deg, #f598a8, #f6edb2);
+    /* filter: blur(3px); */
     font-family: sans-serif;
     font-size: 16px;
-    color:#D2691E;
+    color: #D2691E;
     max-width: 1440px;
     position: relative;
     margin: 0 auto;
-    background-repeat: no-repeat;
 }
 
 @media screen and (max-width: 425px) and (min-width: 325px) {
