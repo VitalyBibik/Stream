@@ -9,7 +9,8 @@
 @import url('../blocks/box-small/box-small.css');
 @import url('../blocks/info/info.css');
 
-.test{
+.test {
+    text-align: center;
 }
 .test:nth-child(1) .box-item__temp_big{
     font-size: 10rem;

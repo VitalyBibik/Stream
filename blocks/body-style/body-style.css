@@ -3,6 +3,7 @@
 .body-style {
     background: linear-gradient(90deg, #f598a8, #f6edb2);
     /* filter: blur(3px); */
+    background-repeat: no-repeat;
     font-family: sans-serif;
     font-size: 16px;
     color: #D2691E;

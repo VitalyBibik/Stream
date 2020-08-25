@@ -9,3 +9,10 @@
     flex-direction: column;
     align-items: flex-end;
 }
+
+@media screen and (min-width:320px) and (max-width:678px) {
+    .info {
+        align-items: center;
+    }
+
+}
