@@ -1,29 +1,8 @@
 import '../pages/index.css'
+import { options, keys } from './config'
+import { weatherTitle, weatherTemp, weatherPressure, weatherWind, weatherType, weatherIcon, buttonSearch, buttonSearchGeo } from './doom'
+
 // Показать изменения в верстке, дизайне, коде + сборщик
-const config = {
-    key:'e7e013145e8f764392b0517c2ab23d80',
-    imageKey:'16932497-da77038ac64e17ff9ad2c6a4e'
-};
-const options = {
-    enableHighAccuracy: true,
-    timeout: 5000,
-    maximumAge: 0
-};
-/* html info  start */
-const weatherTitle = document.querySelector('.weather__title');
-const weatherTemp = document.querySelector('.weather__temp');
-const weatherPressure = document.querySelector('.weather__pressure');
-const weatherWind = document.querySelector('.weather__wind');
-const weatherType = document.querySelector('.weather__type');
-
-// icon
-const weatherIcon = document.querySelector('.weather__img');
-/* html info end */
-
-// buttons
-const buttonSearch = document.querySelector('#search'); // button Search for Weather
-const buttonSearchGeo = document.querySelector('#searchGeo'); // button Search for searchGeo
-
 
    function sendCity  (event) {
     event.preventDefault();
@@ -63,7 +42,7 @@ function sendGeo(event) {
 }
 
 function getWeatherCity(city) {
-    return  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${config.key}&lang=ru`)
+    return  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${keys.key}&lang=ru`)
         .then(res => {
             if (res.ok) {
                 return res.json()
@@ -76,7 +55,7 @@ function getWeatherCity(city) {
 }
 
 function getGeoWeather(lat,lon){
-    return  fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat.toFixed(2)}&lon=${lon.toFixed(2)}&units=metric&lang=RU&exclude=hourly,daily&appid=${config.key}`)
+    return  fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat.toFixed(2)}&lon=${lon.toFixed(2)}&units=metric&lang=RU&exclude=hourly,daily&appid=${keys.key}`)
         .then(res => {
             if (res.ok) {
                 return res.json()
@@ -118,7 +97,7 @@ buttonSearchGeo.addEventListener('click', sendGeo);
 // Мой код для изображений
 
 function getPhoto(cityImage) {
-    return  fetch(`https://pixabay.com/api/?key=${config.imageKey}&q=${cityImage}&image_type=photo`)
+    return  fetch(`https://pixabay.com/api/?key=${keys.imageKey}&q=${cityImage}&image_type=photo`)
         .then(res => {
             if (res.ok) {
                 return res.json()
