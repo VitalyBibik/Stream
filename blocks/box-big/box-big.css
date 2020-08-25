@@ -1,0 +1,6 @@
+@import url('./__form/box-big__form.css');
+@import url('./__image/box-big__image.css');
+@import url('./__button/box-big__button.css');
+.box-big{
+    padding-bottom: 4rem;
+}

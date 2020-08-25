@@ -1,4 +1,5 @@
 .form__city{
-    display: block;
-    margin: 0 auto;
+    background-color: transparent;
+    border:none;
+    font-size: 3rem;
 }

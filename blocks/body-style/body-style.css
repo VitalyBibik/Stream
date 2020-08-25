@@ -1,19 +1,19 @@
-.body-style{
-    display:block;
-  /*  background:linear-gradient(90deg, lightskyblue, #b3dbd3, #f4d6db); */
-    background-repeat: repeat;
+@import url('./__container/body-style__container.css');
+
+.body-style {
+    background: linear-gradient(90deg, #f598a8, #f6edb2);
+    /* filter: blur(3px); */
     font-family: sans-serif;
     font-size: 16px;
-    color:#D2691E;
+    color: #D2691E;
     max-width: 1440px;
     position: relative;
-    object-fit: cover;
-    background-image: url("https://funart.pro/uploads/posts/2020-04/1588075040_14-p-temnie-foni-27.jpg");
-    background-repeat: no-repeat;
+    margin: 0 auto;
 }
 
 @media screen and (max-width: 425px) and (min-width: 325px) {
     body {
         font-size: 60px;
+        font-family: sans-serif;
     }
 }
