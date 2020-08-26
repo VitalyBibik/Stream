@@ -21,7 +21,7 @@ class Api {
          
 
      getGeoWeather(lat,lon){
-        return  fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&lang=RU&exclude=daily&appid=${this.options.key}`)
+        return  fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&lang=RU&exclude=hourly&appid=${this.options.key}`)
             .then(res => {
                 if (res.ok) {
                     return res.json()
