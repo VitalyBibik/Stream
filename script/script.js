@@ -1,27 +1,39 @@
-import '../pages/index.css'
-import { options, keys} from './config'
-import { objWeather, buttonSearch, buttonSearchGeo } from './doom'
+import '../pages/index.css';
+import { keys, geoOptions} from './config';
+import { objWeather, objCity, buttonSearch, buttonSearchGeo } from './doom';
 import { Api } from './Api';
-import { Weather } from './Weather'
-import { Geo } from './Geo'
+import { Weather } from './Weather';
 
 
-const api = new Api(keys)
-const weather = new Weather(objWeather, api);
-const geo = new Geo ();
-navigator.geolocation.getCurrentPosition(position => {
-    api.getGeoWeather(position.coords.latitude, position.coords.longitude).then((data)=> {
-        console.log(data);
+const api = new Api(keys);
+const weather = new Weather(objWeather, objCity, api, geoOptions);
+weather.initWeather();
+
+
+function getTime(obj) {
+    console.log(obj);
+    return  fetch(`http://worldtimeapi.org/api/timezone/${obj.timezone}/${obj.city}`)
+    .then(res => {
+        if (res.ok) {
+            return res.json()
+        }
+        return Promise.reject(`Что то пошло не так ${res.status}`)
     })
-  }, error => {
-    console.error(error)
-  }, {
-    timeout: 1000,
-    maximumAge: 10000,
-    enableHighAccuracy: true
-  })
+    .catch((err) => {
+        console.log(err);
+    });
 
+}
 
+var obj = {
+timezone:'Europe',
+city:'Pskov'
+}
+
+getTime(obj).then((data) =>{
+console.log(data);
+})
+.catch((e) => {console.log(e)})
 
  /*
 

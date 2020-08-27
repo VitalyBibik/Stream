@@ -1,12 +1,14 @@
 const keys = {
     key:'e7e013145e8f764392b0517c2ab23d80',
-    imageKey:'16932497-da77038ac64e17ff9ad2c6a4e'
+    imageKey:'16932497-da77038ac64e17ff9ad2c6a4e',
+    geoKey:'0fc39a2abbc5fbc725494cf468bf07aa8f080070'
 };
 
-const options = {
-    enableHighAccuracy: true,
-    timeout: 5000,
-    maximumAge: 0
-};
+const geoOptions = {
+    timeout: 1000,
+    maximumAge: 10000,
+    enableHighAccuracy: true
+}
 
-export {keys, options}
+
+export {keys, geoOptions}
