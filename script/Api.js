@@ -71,7 +71,7 @@ class Api {
     /* Метод получения времени через Континент и город */
     getTime(obj) {
         console.log(obj);
-        return  fetch(`http://worldtimeapi.org/api/timezone/${obj.timezone}/${obj.city}`)
+        return  fetch(`http://worldtimeapi.org/api/timezone/${obj.timezone}`)
         .then(res => {
             if (res.ok) {
                 return res.json()
@@ -81,8 +81,8 @@ class Api {
         .catch((err) => {
             console.log(err);
         });
-
     }
+
 
 }
 

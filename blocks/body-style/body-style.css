@@ -1,20 +1,16 @@
 @import url('./__container/body-style__container.css');
 
 .body-style {
-    background: linear-gradient(90deg, #f598a8, #f6edb2);
+    background: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d);
     /* filter: blur(3px); */
     background-repeat: no-repeat;
-    font-family: sans-serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
     font-size: 16px;
-    color: #D2691E;
+    color: floralwhite;
     max-width: 1440px;
     position: relative;
     margin: 0 auto;
+    font-weight: normal;
 }
 
-@media screen and (max-width: 425px) and (min-width: 325px) {
-    body {
-        font-size: 60px;
-        font-family: sans-serif;
-    }
-}
+

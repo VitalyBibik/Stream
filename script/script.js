@@ -10,31 +10,6 @@ const weather = new Weather(objWeather, objCity, api, geoOptions);
 weather.initWeather();
 
 
-function getTime(obj) {
-    console.log(obj);
-    return  fetch(`http://worldtimeapi.org/api/timezone/${obj.timezone}/${obj.city}`)
-    .then(res => {
-        if (res.ok) {
-            return res.json()
-        }
-        return Promise.reject(`Что то пошло не так ${res.status}`)
-    })
-    .catch((err) => {
-        console.log(err);
-    });
-
-}
-
-var obj = {
-timezone:'Europe',
-city:'Pskov'
-}
-
-getTime(obj).then((data) =>{
-console.log(data);
-})
-.catch((e) => {console.log(e)})
-
  /*
 
    function sendCity  (event) {
