@@ -14,6 +14,7 @@ const objWeather = {
 const objCity = {
     city, cityTime
 }
+const form = document.querySelector('.box-big__form');
 
 
 
@@ -22,4 +23,4 @@ const objCity = {
 const buttonSearch = document.querySelector('#search'); // button Search for Weather
 const buttonSearchGeo = document.querySelector('#searchGeo'); // button Search for searchGeo
 
-export { objWeather, objCity, buttonSearch, buttonSearchGeo }
+export { objWeather, objCity, buttonSearch, buttonSearchGeo, form }

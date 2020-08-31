@@ -1,15 +1,17 @@
 import {urlLit, getWeekDay} from './utils';
 
 class Weather {
-    constructor(objWeather, objCity, api, geoOptions) {
+    constructor(objWeather, objCity, api, geoOptions, form) {
         this.objWeather = objWeather;
         this.objCity = objCity;
         this.api = api;
         this.geoOptions = geoOptions;
+        this.form = form;
         this.timeObj = {
             timezone:'',
             city:''
         }
+        this.searchHistory = [];
     }
 
  initWeather () {
@@ -40,14 +42,17 @@ class Weather {
     }
 
  changeWeatherInfo (data) {
-           console.log(data);
-           this.timeObj.timezone = data.timezone;
+          console.log(data);
+          this.timeObj.timezone = data.timezone;
           const iconArray = Array.from(this.objWeather.weatherIcons);
           const weatherTemp = Array.from(this.objWeather.weatherTemp);
           const weatherDays = Array.from(this.objWeather.weatherDays);
+          const weatherWind = this.objWeather.weatherWind;  
 
           const day = new Date();
           const currentDay = getWeekDay(day);
+
+          weatherWind.textContent = data.current['wind_speed'] + ' mph'
           for (let i = 0; i <= iconArray.length; i++) {
             weatherTemp[i].textContent = Math.floor(data.daily[i].temp.day);
 
@@ -92,6 +97,15 @@ class Weather {
      .catch((e) => {
          console.log(e);
      })
+ }
+ test() {
+    this.form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        console.log('clicked');
+        this.searchHistory.push(e.target.searchValue.value);
+        e.target.reset();
+        console.log(this.searchHistory);
+    });
  }
 
 }
