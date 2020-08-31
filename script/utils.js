@@ -11,9 +11,18 @@ function getWeekDay(date) {
     const days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
     const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const day = date.getDay();
-    
-    return [weekDays[day], days];
+    const needDay = weekDays[day];
+    const indexDay=  weekDays.indexOf(needDay);
+    const finalArray = [];
+
+    for (let i = indexDay; i <= weekDays.length - 1; i++){
+        finalArray.push(days[i]);
+    }
+    for (let i = 0; i <  indexDay; i++ ){
+        finalArray.push(days[i]);
+    }
+    return [weekDays[day], finalArray];
 }
-//return days[day];
+
 
     export {urlLit, getWeekDay}

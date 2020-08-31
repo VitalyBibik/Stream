@@ -21,7 +21,7 @@ class Weather {
             }, error => {
                 console.log(error);
             })
-    const promise2 = this.api.getGeoCity(position.coords.latitude, position.coords.longitude) 
+    const promise2 = this.api.getGeoCity(position.coords.latitude, position.coords.longitude)
         .then((data) => {
             this.changeCity(data);
                 }, error => {
@@ -33,7 +33,7 @@ class Weather {
                 this.changeImage();
      }, error => {
         console.log(error);
-     })       
+     })
       }, error => {
         console.error(error);
       })
@@ -48,27 +48,23 @@ class Weather {
 
           const day = new Date();
           const currentDay = getWeekDay(day);
-
-
-          
-
           for (let i = 0; i <= iconArray.length; i++) {
             weatherTemp[i].textContent = Math.floor(data.daily[i].temp.day);
-            
+
               if (i === 0) {
                 iconArray[i].src = `http://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}@4x.png`;
-                weatherDays[i].textContent = currentDay[i];
-
+                  weatherDays[i].textContent = currentDay[i];
               } else {
               iconArray[i].src = `http://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}@2x.png`;
+              weatherDays[i].textContent = currentDay[i][i];
               }
-                
+
           }
  }
 
  changeCity (data) {
         const cityName = this.objCity.city.textContent = data.suggestions[0].value.split(',')[0];
-        this.objCity.city.textContent = cityName;                       
+        this.objCity.city.textContent = cityName;
         this.timeObj.city = urlLit(cityName.split(' ')[1]);
  }
 
@@ -91,7 +87,7 @@ class Weather {
         const max = data.totalHits;
         const lucky = Math.floor(Math.random() * (max - min) + min);
         const linkImage = data['hits'][lucky]['largeImageURL'];
-        this.objWeather.weatherBackImg.src= linkImage ;      
+        this.objWeather.weatherBackImg.src= linkImage ;
      })
      .catch((e) => {
          console.log(e);
