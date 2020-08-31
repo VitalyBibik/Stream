@@ -3,11 +3,25 @@
 @import url('../blocks/button/button.css');
 @import url('../blocks/weather/weather.css');
 @import url('../blocks/geo/geo.css');
+@import url('../blocks/container/container.css');
+@import url('../blocks/box-big/box-big.css');
+@import url('../blocks/box-item/box-item.css');
+@import url('../blocks/box-small/box-small.css');
+@import url('../blocks/info/info.css');
 
+.test {
+    text-align: center;
+}
+.test:nth-child(1) .box-item__temp_big{
+    font-size: 10rem;
+    margin: 0;
 
+}
+.test:nth-child(1) .box-item__day_more{
+    font-size: 3rem;
+    margin: 0;
 
-.super{
-    z-index: -1;
-    max-width: 425px;
-    position: absolute;
+}
+.test1{
+text-align: center;
 }

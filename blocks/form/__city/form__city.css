@@ -1,4 +1,26 @@
 .form__city{
-    display: block;
-    margin: 0 auto;
+    background-color: transparent;
+    border:none;
+    font-size: 3rem;
+    color:gold;
+    font-family:cursive;
+    
+}
+.form__city::placeholder {
+    color:gold;
+}
+@media screen and (min-width:460px) and (max-width:750px) {
+    .form__city {
+        font-size:2rem;
+        margin-bottom: 20px;
+    }
+
+}
+
+@media screen and (min-width:320px) and (max-width:459px) {
+    .form__city {
+        font-size:1.2rem;
+        margin-bottom: 20px;
+    }
+
 }

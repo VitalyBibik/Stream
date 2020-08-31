@@ -1,29 +1,16 @@
-import '../pages/index.css'
-// Показать изменения в верстке, дизайне, коде + сборщик
-const config = {
-    key:'e7e013145e8f764392b0517c2ab23d80',
-    imageKey:'16932497-da77038ac64e17ff9ad2c6a4e'
-};
-const options = {
-    enableHighAccuracy: true,
-    timeout: 5000,
-    maximumAge: 0
-};
-/* html info  start */
-const weatherTitle = document.querySelector('.weather__title');
-const weatherTemp = document.querySelector('.weather__temp');
-const weatherPressure = document.querySelector('.weather__pressure');
-const weatherWind = document.querySelector('.weather__wind');
-const weatherType = document.querySelector('.weather__type');
+import '../pages/index.css';
+import { keys, geoOptions} from './config';
+import { objWeather, objCity, buttonSearch, buttonSearchGeo } from './doom';
+import { Api } from './Api';
+import { Weather } from './Weather';
 
-// icon
-const weatherIcon = document.querySelector('.weather__img');
-/* html info end */
 
-// buttons
-const buttonSearch = document.querySelector('#search'); // button Search for Weather
-const buttonSearchGeo = document.querySelector('#searchGeo'); // button Search for searchGeo
+const api = new Api(keys);
+const weather = new Weather(objWeather, objCity, api, geoOptions);
+weather.initWeather();
 
+
+ /*
 
    function sendCity  (event) {
     event.preventDefault();
@@ -47,9 +34,7 @@ const buttonSearchGeo = document.querySelector('#searchGeo'); // button Search f
         const min = 0;
         const max = 20;
         const lucky = Math.floor(Math.random() * (max - min) + min);
-     //   const test = document.querySelector('.super');
-     //   test.src = `${data['hits'][lucky]['largeImageURL']}`
-       const test =  document.querySelector('.body-style');
+       const test =  document.querySelector('.box-big__image');
        test.setAttribute('style', `background-image:url(${data['hits'][lucky]['largeImageURL']}`) ;
     })
         .catch((err) => {
@@ -62,32 +47,7 @@ function sendGeo(event) {
     navigator.geolocation.getCurrentPosition(success, error, options);
 }
 
-function getWeatherCity(city) {
-    return  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${config.key}&lang=ru`)
-        .then(res => {
-            if (res.ok) {
-                return res.json()
-            }
-            return Promise.reject(`Что то пошло не так ${res.status}`)
-        })
-        .catch((err) => {
-            console.log(err);
-        });
-}
 
-function getGeoWeather(lat,lon){
-    return  fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat.toFixed(2)}&lon=${lon.toFixed(2)}&units=metric&lang=RU&exclude=hourly,daily&appid=${config.key}`)
-        .then(res => {
-            if (res.ok) {
-                return res.json()
-            }
-            return Promise.reject(`Что то пошло не так ${res.status}`)
-        })
-        .catch((err) => {
-            console.log(err);
-        });
-
-}
 function success(pos) {
     const crd = pos.coords;
     getGeoWeather(crd.latitude, crd.longitude)
@@ -111,21 +71,8 @@ function error(err) {
 navigator.geolocation.getCurrentPosition(success, error, options);
 
 // Слушатели
-buttonSearch.addEventListener('click', sendCity );
+buttonSearch.addEventListener('click', sendCity);
 buttonSearchGeo.addEventListener('click', sendGeo);
+*/
 
 
-// Мой код для изображений
-
-function getPhoto(cityImage) {
-    return  fetch(`https://pixabay.com/api/?key=${config.imageKey}&q=${cityImage}&image_type=photo`)
-        .then(res => {
-            if (res.ok) {
-                return res.json()
-            }
-            return Promise.reject(`Что то пошло не так ${res.status}`)
-        })
-        .catch((err) => {
-            console.log(err);
-        });
-}
