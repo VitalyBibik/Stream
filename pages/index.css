@@ -29,7 +29,7 @@ button {
     background-color: transparent;
 }
 button.glo{
-    font-size: 16px;
+    font-size: 18px;
     color:#00c6ff;
     padding: 10px 20px;
     width:100px;
@@ -41,7 +41,6 @@ button.glo{
     background-position: 100% 0;
     background-size: 200% 100%;
     transition: all .25s ease-in;
-    font: 400 18px tahoma;
     border: 1px solid #00C6FF;
    }
    button.glo:hover {

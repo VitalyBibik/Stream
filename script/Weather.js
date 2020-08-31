@@ -16,33 +16,36 @@ class Weather {
 
  initWeather () {
      navigator.geolocation.getCurrentPosition(position => {
-
-    const promise1 = this.api.getGeoWeather(position.coords.latitude, position.coords.longitude)
-        .then((data) => {
-            this.changeWeatherInfo(data);
-            }, error => {
-                console.log(error);
-            })
-    const promise2 = this.api.getGeoCity(position.coords.latitude, position.coords.longitude)
-        .then((data) => {
-            this.changeCity(data);
-                }, error => {
-                console.log(error);
-            })
-            const promises = [promise1, promise2];
-            Promise.allSettled(promises).then(() => {
-                this.changeTime();
-                this.changeImage();
-     }, error => {
-        console.log(error);
-     })
+        this.getGeoFullInfo(position.coords.latitude, position.coords.longitude);
       }, error => {
         console.error(error);
       })
     }
 
+ getGeoFullInfo(lat, long) {
+
+     const promise1 = this.api.getGeoWeather(lat, long)
+         .then((data) => {
+             console.log("Все данные о погоде в этом городе", data);
+             this.changeWeatherInfo(data);
+         }, error => {
+             console.log(error);
+         })
+     const promise2 = this.api.getGeoCity(lat, long)
+         .then((data) => {
+             console.log("Геоданные", data);
+             this.changeCity(data);
+         }, error => {
+             console.log(error);
+         })
+     const promises = [promise1, promise2];
+     Promise.allSettled(promises).then(() => {
+         this.changeTime();
+         this.changeImage();
+     })
+ }
+
  changeWeatherInfo (data) {
-          console.log(data);
           this.timeObj.timezone = data.timezone;
           const iconArray = Array.from(this.objWeather.weatherIcons);
           const weatherTemp = Array.from(this.objWeather.weatherTemp);
@@ -69,9 +72,11 @@ class Weather {
  }
 
  changeCity (data) {
+        console.log('Город' ,data);
         const cityName = this.objCity.city.textContent = data.suggestions[0].value.split(',')[0];
         this.objCity.city.textContent = cityName;
         this.timeObj.city = urlLit(cityName.split(' ')[1]);
+
  }
 
  changeTime () {
@@ -103,8 +108,14 @@ class Weather {
  test() {
     this.form.addEventListener('submit', (e) => {
         e.preventDefault();
-        console.log('clicked');
-        this.searchHistory.push(e.target.searchValue.value);
+        const inputValue = e.target.searchValue.value;
+        this.api.getWeatherCity(inputValue).then((data) => {
+            this.timeObj.city = urlLit(data.name);
+            this.objCity.city.textContent = data.name;
+            console.log('Пришедший город с getWeatherCity', data)
+            this.searchHistory.push(inputValue);
+            this.getGeoFullInfo(data.coord.lat, data.coord.lon);
+        })
         e.target.reset();
         console.log(this.searchHistory);
     });

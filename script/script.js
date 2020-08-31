@@ -1,10 +1,6 @@
 import '../pages/index.css';
 import { keys, geoOptions} from './config';
-<<<<<<< HEAD
-import { objWeather, objCity, buttonSearch, buttonSearchGeo, searchForm } from './doom';
-=======
-import { objWeather, objCity, buttonSearch, buttonSearchGeo, form } from './doom';
->>>>>>> e18ac2df790b8d3c338d3a9439186b86bd2cd23c
+import { objWeather, objCity, form } from './doom';
 import { Api } from './Api';
 import { Weather } from './Weather';
 
@@ -12,7 +8,7 @@ import { Weather } from './Weather';
 const api = new Api(keys);
 const weather = new Weather(objWeather, objCity, api, geoOptions, form);
 weather.initWeather();
-searchForm.addEventListener('submit', weather.test);
+
 
 weather.test();
 

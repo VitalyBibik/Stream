@@ -1,14 +1,15 @@
-.form__city{
+.form__city {
     background-color: transparent;
     border:none;
     font-size: 3rem;
-    color:gold;
+    color:#fff587;
     font-family:cursive;
-    
 }
 .form__city::placeholder {
-    color:gold;
+    color:#fff587;
 }
+
+
 @media screen and (min-width:460px) and (max-width:750px) {
     .form__city {
         font-size:2rem;
