@@ -1,6 +1,6 @@
 import '../pages/index.css';
 import { keys, geoOptions} from './config';
-import { objWeather, objCity, buttonSearch, buttonSearchGeo } from './doom';
+import { objWeather, objCity, buttonSearch, buttonSearchGeo, searchForm } from './doom';
 import { Api } from './Api';
 import { Weather } from './Weather';
 
@@ -8,6 +8,7 @@ import { Weather } from './Weather';
 const api = new Api(keys);
 const weather = new Weather(objWeather, objCity, api, geoOptions);
 weather.initWeather();
+searchForm.addEventListener('submit', weather.test);
 
 
  /*

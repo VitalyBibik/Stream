@@ -8,6 +8,8 @@ const cityTime = document.querySelector('.info__time');
 // icon
 const weatherBackImg = document.querySelector('.box-big__image');
 
+const searchForm = document.querySelector('.box-big__form');
+
 const objWeather = {
   weatherDays, weatherIcons, weatherTemp, weatherWind, weatherBackImg
 }
@@ -22,4 +24,4 @@ const objCity = {
 const buttonSearch = document.querySelector('#search'); // button Search for Weather
 const buttonSearchGeo = document.querySelector('#searchGeo'); // button Search for searchGeo
 
-export { objWeather, objCity, buttonSearch, buttonSearchGeo }
+export { objWeather, objCity, buttonSearch, buttonSearchGeo, searchForm }

@@ -40,14 +40,17 @@ class Weather {
     }
 
  changeWeatherInfo (data) {
-           console.log(data);
-           this.timeObj.timezone = data.timezone;
+          console.log(data);
+          this.timeObj.timezone = data.timezone;
           const iconArray = Array.from(this.objWeather.weatherIcons);
           const weatherTemp = Array.from(this.objWeather.weatherTemp);
           const weatherDays = Array.from(this.objWeather.weatherDays);
+          const weatherWind = this.objWeather.weatherWind;
 
           const day = new Date();
           const currentDay = getWeekDay(day);
+
+          weatherWind.textContent = data.current['wind_speed'] + ' mph' ;
           for (let i = 0; i <= iconArray.length; i++) {
             weatherTemp[i].textContent = Math.floor(data.daily[i].temp.day);
 
@@ -56,7 +59,7 @@ class Weather {
                   weatherDays[i].textContent = currentDay[i];
               } else {
               iconArray[i].src = `http://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}@2x.png`;
-              weatherDays[i].textContent = currentDay[i][i];
+              weatherDays[i].textContent = currentDay[1][i];
               }
 
           }
@@ -87,11 +90,15 @@ class Weather {
         const max = data.totalHits;
         const lucky = Math.floor(Math.random() * (max - min) + min);
         const linkImage = data['hits'][lucky]['largeImageURL'];
-        this.objWeather.weatherBackImg.src= linkImage ;
+        this.objWeather.weatherBackImg.src= linkImage;
      })
      .catch((e) => {
          console.log(e);
      })
+ }
+ privet = (e) =>  {
+        e.preventDefault();
+        console.log('privet');
  }
 
 }
