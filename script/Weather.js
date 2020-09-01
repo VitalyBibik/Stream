@@ -74,9 +74,9 @@ class Weather {
 
  changeCity (data) {
         console.log('Город' ,data);
-        const cityName = this.objCity.city.textContent = data.suggestions[0].value.split(',')[0];
+        const cityName = this.objCity.city.textContent = data.suggestions[0].data.city;
         this.objCity.city.textContent = cityName;
-        this.timeObj.city = urlLit(cityName.split(' ')[1]);
+        this.timeObj.city = urlLit(cityName);
 
  }
 
@@ -91,12 +91,12 @@ class Weather {
  }
  changeImage () {
      this.api.getPhoto(this.timeObj.city).then((data) => {
-        if (data === undefined) {
-            return
-        }
+         if (data === undefined) {
+             return;
+         }
         console.log(data);
         const min = 0;
-        const max = data.totalHits;
+        const max = data.hits.length;
         const lucky = Math.floor(Math.random() * (max - min) + min);
         const linkImage = data['hits'][lucky]['largeImageURL'];
         this.objWeather.weatherBackImg.src= linkImage;
@@ -106,7 +106,7 @@ class Weather {
      })
  }
 
- test() {
+ initSearchForm() {
     this.form.addEventListener('submit', (e) => {
         e.preventDefault();
         const inputValue = e.target.searchValue.value;
@@ -116,9 +116,10 @@ class Weather {
             console.log('Пришедший город с getWeatherCity', data)
             this.searchHistory.push(inputValue);
             this.getGeoFullInfo(data.coord.lat, data.coord.lon);
+            console.log("История", this.searchHistory);
         })
         e.target.reset();
-        console.log(this.searchHistory);
+     
     });
 
  }
