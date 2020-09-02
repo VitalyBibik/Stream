@@ -67,6 +67,25 @@
             </div>
         </div>
     </div>
+    <div class="popup popup__login popup_is_opened" id="popup-auth">
+        <div class="popup__content">
+            <img src=" <%= require('./images/close.svg').default %>" alt="Close. Закрыть." class="popup__close">
+            <h3 class="popup__title">Вход</h3>
+            <form class="popup__form" name="signin" id="signIn">
+                <div class="input-container">
+                    <p><select size="3" multiple name="hero[]">
+                        <option disabled>Выберите героя</option>
+                        <option value="Чебурашка">Чебурашка</option>
+                        <option selected value="Крокодил Гена">Крокодил Гена</option>
+                        <option value="Шапокляк">Шапокляк</option>
+                        <option value="Крыса Лариса">Крыса Лариса</option>
+                    </select></p>
+                </div>
+                <span id="error-login" class="error-message error-message_type_server"></span>
+                <button id="submitSignIn" type="submit" class="button popup__button popup__button_is_disabled" disabled>Войти</button>
+            </form>
+        </div>
+    </div>
 
 
 

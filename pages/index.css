@@ -8,6 +8,7 @@
 @import url('../blocks/box-item/box-item.css');
 @import url('../blocks/box-small/box-small.css');
 @import url('../blocks/info/info.css');
+@import url('../blocks/popup/popup.css');
 
 .test {
     text-align: center;

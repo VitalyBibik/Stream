@@ -1,17 +1,4 @@
 .button {
-    display: inline-block;
-    font-weight: bold;
-    color: #fff;
-    text-decoration: none;
-    user-select: none;
-    padding: .7em 1.5em;
-    border: none;
-    border-bottom-left-radius: 30px;
-    border-top-left-radius: 30px;
-    outline: none;
-    background: limegreen;
-    transition: .2s;
-    text-transform: uppercase;
 }
 .button:hover {
   color:red;
