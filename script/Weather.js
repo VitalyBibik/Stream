@@ -12,7 +12,6 @@ class Weather {
             city:''
         }
         this.searchHistory = [];
-        // Поправить баг с Чикаго, Ленина
     }
 
  initWeather () {
@@ -119,10 +118,11 @@ class Weather {
             console.log("История", this.searchHistory);
         })
         e.target.reset();
-     
     });
 
  }
+
+
 
 }
 export {Weather}

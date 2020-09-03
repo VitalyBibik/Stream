@@ -8,7 +8,7 @@ const cityTime = document.querySelector('.info__time');
 // icon
 const weatherBackImg = document.querySelector('.box-big__image');
 
-
+const formHistory = document.querySelector('.popup__history');
 
 const objWeather = {
   weatherDays, weatherIcons, weatherTemp, weatherWind, weatherBackImg
@@ -18,10 +18,10 @@ const objCity = {
 }
 const form = document.querySelector('.box-big__form');
 
+const historyOpenButton = document.querySelector('#lastLocation');
 
 
 
 
-
-export { objWeather, objCity, form }
+export { objWeather, objCity, form, formHistory, historyOpenButton }
 
