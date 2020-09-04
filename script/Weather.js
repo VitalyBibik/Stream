@@ -17,13 +17,13 @@ class Weather {
  initWeather () {
      navigator.geolocation.getCurrentPosition(position => {
         this.getGeoFullInfo(position.coords.latitude, position.coords.longitude);
+        console.log(position)
       }, error => {
         console.error(error);
       })
     }
 
  getGeoFullInfo(lat, long) {
-
      const promise1 = this.api.getGeoWeather(lat, long)
          .then((data) => {
              console.log("Все данные о погоде в этом городе", data);

@@ -51,13 +51,10 @@ class PopupHistory extends Popup {
             e.target.reset();
 
         });
-       const input = this.containerPopup.querySelector('#historyLogin');
-            input.addEventListener('input', (e) => {
-                console.log(this.searchHistory,'hist');
-                historySearch(e.currentTarget.value, this.searchHistory);
-        });
 
     }
+
+
 
 
 }

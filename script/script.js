@@ -4,6 +4,7 @@ import { objWeather, objCity, form, formHistory, historyOpenButton } from './doo
 import { Api } from './Api';
 import { Weather } from './Weather';
 import { PopupHistory } from "./PopupHistory";
+import {historySearch} from "./utils";
 
 
 
@@ -18,3 +19,8 @@ popupHistory.initHistoryForm();
 historyOpenButton.addEventListener('click', popupHistory.open);
 
 
+const input = document.querySelector('#historyLogin');
+input.addEventListener('input', (e) => {
+    console.log(this.searchHistory,'hist');
+    historySearch(e.currentTarget.value, ['Pskov']);
+});

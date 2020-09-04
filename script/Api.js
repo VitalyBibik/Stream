@@ -43,6 +43,7 @@ class Api {
     }
 /* Метод получения погоды через широту и долготу */
      getGeoWeather(lat,lon){
+         console.log('lat,lon', lat,lon)
         return  fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&lang=RU&exclude=hourly,minutely&appid=${this.options.key}`)
             .then(res => {
                 if (res.ok) {
