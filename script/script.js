@@ -1,10 +1,10 @@
 import '../pages/index.css';
-import { keys, geoOptions} from './config';
-import { objWeather, objCity, form, formHistory, historyOpenButton } from './doom';
-import { Api } from './Api';
-import { Weather } from './Weather';
-import { PopupHistory } from "./PopupHistory";
-import {historySearch} from "./utils";
+import { keys, geoOptions} from './config/config';
+import { objWeather, objCity, form, formHistory, historyOpenButton } from './dom/doom';
+import { Api } from './api/Api';
+import { Weather } from './component/Weather';
+import { PopupHistory } from "./component/PopupHistory";
+import {historySearch} from "./utils/utils";
 
 
 
@@ -24,3 +24,4 @@ input.addEventListener('input', (e) => {
     console.log(this.searchHistory,'hist');
     historySearch(e.currentTarget.value, ['Pskov']);
 });
+

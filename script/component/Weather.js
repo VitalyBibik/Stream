@@ -1,4 +1,4 @@
-import {urlLit, getWeekDay} from './utils';
+import {urlLit, getWeekDay} from '../utils/utils';
 
 class Weather {
     constructor(objWeather, objCity, api, geoOptions, form) {

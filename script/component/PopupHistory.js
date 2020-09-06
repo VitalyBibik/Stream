@@ -1,5 +1,5 @@
 import { Popup }  from "./Popup";
-import {historySearch} from "./utils";
+import {historySearch} from "../utils/utils";
 
 class PopupHistory extends Popup {
     constructor (containerPopup, mainApi, searchHistory) {
