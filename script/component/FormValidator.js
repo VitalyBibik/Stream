@@ -27,6 +27,7 @@ class FormValidator {
         this.form.addEventListener("input", event => {
             this._checkInputValidity(event.target, event.target.nextElementSibling);
             this._setSubmitButtonState();
+            console.log(this.errorMessage);
         });
     };
 

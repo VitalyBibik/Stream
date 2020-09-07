@@ -4,15 +4,13 @@ import { objWeather, objCity, form, formHistory, historyOpenButton, buttonHistor
 import { Api } from './api/Api';
 import { Weather } from './component/Weather';
 import { PopupHistory } from "./component/PopupHistory";
-import { errorMsg } from "../../popular-news/src/js/constants/constants";
 import { FormValidator } from "../../popular-news/src/js/components/FormValidator";
-
-
+import { errorMsg } from "./constants/constants";
 
 
 const api = new Api(keys);
 const weather = new Weather(objWeather, objCity, api, geoOptions, form);
-const popupHistory = new PopupHistory(formHistory, api, weather.searchHistory);
+const popupHistory = new PopupHistory(formHistory, api, weather.searchHistory, weather.changeInfoForFormApi);
 const historyValidator = new FormValidator(historyPopup, buttonHistorySearch, errorMsg);
 
 historyOpenButton.addEventListener('click', popupHistory.open);
@@ -21,3 +19,9 @@ weather.initWeather();
 weather.initSearchForm();
 popupHistory.initHistoryForm();
 historyValidator.setEventListeners();
+
+window.addEventListener('keydown', function closeFormByKeydown(event) {
+    if (event.keyCode === 27) {
+        popupHistory.removePopup();
+    }
+})

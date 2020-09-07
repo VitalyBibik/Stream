@@ -41,10 +41,8 @@ class Weather {
      const promises = [promise1, promise2];
      Promise.allSettled(promises).then(() => {
          try {
-            setTimeout(this.changeTime, 3000 );
-            setTimeout(this.changeImage, 3000 );
-             //this.changeTime();
-            // this.changeImage();
+             this.changeTime();
+             this.changeImage();
          }
          catch (e) {
              console.log(e);
@@ -117,17 +115,25 @@ class Weather {
     this.form.addEventListener('submit', (e) => {
         e.preventDefault();
         const inputValue = e.target.searchValue.value;
-        this.api.getWeatherCity(inputValue).then((data) => {
-            this.timeObj.city = urlLit(data.name);
-            this.objCity.city.textContent = data.name;
-            console.log('Пришедший город с getWeatherCity', data)
-            this.searchHistory.push(inputValue);
-            this.getGeoFullInfo(data.coord.lat, data.coord.lon);
-            console.log("История", this.searchHistory);
-        })
+        this.changeInfoForFormApi(inputValue);
         e.target.reset();
     });
+ }
+ changeInfoForFormApi = (inputValue) => {
+     console.log(inputValue,'value');
+         this.api.getWeatherCity(inputValue).then((data) => {
+         console.log(data,'data');
+         this.changeInfoOnForm(data);
+     })
+ }
 
+ changeInfoOnForm = (data) => {
+     this.timeObj.city = urlLit(data.name);
+     this.objCity.city.textContent = data.name;
+     console.log('Пришедший город с getWeatherCity', data)
+     this.searchHistory.push(data.name);
+     this.getGeoFullInfo(data.coord.lat, data.coord.lon);
+     console.log("История", this.searchHistory);
  }
 
 

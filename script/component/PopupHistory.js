@@ -2,31 +2,14 @@ import { Popup }  from "./Popup";
 import {historySearch} from "../utils/utils";
 
 class PopupHistory extends Popup {
-    constructor (containerPopup, mainApi, searchHistory) {
+    constructor (containerPopup, mainApi, searchHistory, changeInfoForFormApi) {
         super(containerPopup)
         this.mainApi = mainApi;
         this.searchHistory = searchHistory;
+        this.changeInfoForFormApi = changeInfoForFormApi;
     }
 
-    _register = (event) => {
-        event.preventDefault();
-        const button = event.currentTarget;
-        const form = this.containerPopup.querySelector('#historyForm');
-        const userName = this.containerPopup.querySelector('#historyLogin');
 
-        this._removeEnabled(button, email, password, userName);
-
-        this.mainApi.signUp(email.value, password.value, userName.value).then((data) => {
-            this._removeDisable(button, email, password, userName);
-            if (data !== undefined) {
-                form.reset();
-                this.removePopup();
-            }
-        }).catch((e) => {
-            this._removeDisable(button, email, password, userName);
-            this.containerPopup.querySelector('.error-message_type_server').textContent = e.message;
-        })
-    }
     _removeDisable = (button, email, password, userName) => {
         button.removeAttribute('disabled');
         email.removeAttribute('disabled');
@@ -39,14 +22,21 @@ class PopupHistory extends Popup {
         password.setAttribute('disabled',true);
         userName.setAttribute('disabled',true);
     }
-    initHistoryForm() {
+    initHistoryForm ()  {
        const form = this.containerPopup.querySelector('#historyForm');
+       const popup = this.containerPopup;
             form.addEventListener('submit', (e) => {
             e.preventDefault();
-            const inputValue = e.target.historySearch.value;
-            console.log(inputValue);
-            e.target.reset();
-
+            try {
+                const inputValue = e.target.historySearch.value;
+                console.log(inputValue,'input');
+                this.changeInfoForFormApi(inputValue);
+                e.target.reset();
+                this._closePopup(e);
+            }
+            catch (e) {
+                console.log(e);
+            }
         });
 
     }
