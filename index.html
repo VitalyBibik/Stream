@@ -73,8 +73,7 @@
             <h3 class="popup__title">История</h3>
             <form class="popup__form" name="historyForm" id="historyForm" autocomplete="off">
                 <div class="input-container">
-                    <span class="popup__text"></span>
-                    <input id="historyLogin" required type="text" name="historySearch" class="popup__input" placeholder="Поиск по истории">
+                    <input id="historyLogin" minlength="4" maxlength="32"   required type="text" name="historySearch" class="popup__input" placeholder="Поиск по истории">
                     <span id="error-history" class="error-message"></span>
                 </div>
                 <span id="error-login" class="error-message error-message_type_server"></span>

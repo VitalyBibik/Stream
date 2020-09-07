@@ -1,6 +1,6 @@
 import '../pages/index.css';
 import { keys, geoOptions} from './config/config';
-import { objWeather, objCity, form, formHistory, historyOpenButton, buttonHistorySearch } from './dom/doom';
+import { objWeather, objCity, form, formHistory, historyOpenButton, buttonHistorySearch, historyPopup } from './dom/doom';
 import { Api } from './api/Api';
 import { Weather } from './component/Weather';
 import { PopupHistory } from "./component/PopupHistory";
@@ -13,7 +13,7 @@ import { FormValidator } from "../../popular-news/src/js/components/FormValidato
 const api = new Api(keys);
 const weather = new Weather(objWeather, objCity, api, geoOptions, form);
 const popupHistory = new PopupHistory(formHistory, api, weather.searchHistory);
-const historyValidator = new FormValidator(formHistory, buttonHistorySearch, errorMsg);
+const historyValidator = new FormValidator(historyPopup, buttonHistorySearch, errorMsg);
 
 historyOpenButton.addEventListener('click', popupHistory.open);
 

@@ -1,6 +1,6 @@
 {
   "name": "supersborka",
-  "version": "0.0.9",
+  "version": "0.0.6",
   "description": "WeatherBuild",
   "main": "script.js",
   "scripts": {
@@ -48,7 +48,7 @@
       "@babel/preset-env"
     ],
     "plugins": [
-      "@babel/plugin-proposal-class-properties", { "loose": true }
+      "@babel/plugin-proposal-class-properties"
     ]
   }
 }
