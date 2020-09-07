@@ -11,10 +11,8 @@ class PopupHistory extends Popup {
     _register = (event) => {
         event.preventDefault();
         const button = event.currentTarget;
-        const form = this.containerPopup.querySelector('#signUp');
-        const email = this.containerPopup.querySelector('#email');
-        const password = this.containerPopup.querySelector('#password');
-        const userName = this.containerPopup.querySelector('#userName');
+        const form = this.containerPopup.querySelector('#historyForm');
+        const userName = this.containerPopup.querySelector('#historyLogin');
 
         this._removeEnabled(button, email, password, userName);
 
@@ -23,7 +21,6 @@ class PopupHistory extends Popup {
             if (data !== undefined) {
                 form.reset();
                 this.removePopup();
-                this.openSuccessForm();
             }
         }).catch((e) => {
             this._removeDisable(button, email, password, userName);

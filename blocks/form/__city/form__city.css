@@ -2,11 +2,11 @@
     background-color: transparent;
     border:none;
     font-size: 3rem;
-    color:#fff587;
+    color:white;
     font-family:cursive;
 }
 .form__city::placeholder {
-    color:#fff587;
+    color:white;
 }
 
 

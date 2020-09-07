@@ -13,12 +13,12 @@
 .test {
     text-align: center;
 }
-.test:nth-child(1) .box-item__temp_big{
+.test:nth-child(1) .box-item__temp_big {
     font-size: 10rem;
     margin: 0;
 
 }
-.test:nth-child(1) .box-item__day_more{
+.test:nth-child(1) .box-item__day_more {
     font-size: 3rem;
     margin: 0;
 

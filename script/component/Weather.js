@@ -40,8 +40,16 @@ class Weather {
          })
      const promises = [promise1, promise2];
      Promise.allSettled(promises).then(() => {
-         this.changeTime();
-         this.changeImage();
+         try {
+            setTimeout(this.changeTime, 3000 );
+            setTimeout(this.changeImage, 3000 );
+             //this.changeTime();
+            // this.changeImage();
+         }
+         catch (e) {
+             console.log(e);
+         }
+
      })
  }
 

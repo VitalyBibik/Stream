@@ -20,8 +20,8 @@ const form = document.querySelector('.box-big__form');
 
 const historyOpenButton = document.querySelector('#lastLocation');
 
+const buttonHistorySearch = document.querySelector('#submitSearchHistory');
 
 
-
-export { objWeather, objCity, form, formHistory, historyOpenButton }
+export { objWeather, objCity, form, formHistory, historyOpenButton, buttonHistorySearch }
 
