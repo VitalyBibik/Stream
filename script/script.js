@@ -4,7 +4,7 @@ import { objWeather, objCity, form, formHistory, historyOpenButton, buttonHistor
 import { Api } from './api/Api';
 import { Weather } from './component/Weather';
 import { PopupHistory } from "./component/PopupHistory";
-import { FormValidator } from "../../popular-news/src/js/components/FormValidator";
+import { FormValidator } from "./component/FormValidator";
 import { errorMsg } from "./constants/constants";
 
 
