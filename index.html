@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.172e60f819e11bef0992.css">
+    <link rel="stylesheet" href="style.3d50dd5969824f57acd3.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Week stream</title>
 </head>
@@ -73,18 +73,19 @@
             <h3 class="popup__title">История</h3>
             <form class="popup__form" name="historyForm" id="historyForm" autocomplete="off">
                 <div class="input-container">
-                    <span class="popup__text"></span>
-                    <input id="historyLogin" required type="text" name="historySearch" class="popup__input" placeholder="Поиск по истории">
+                    <input id="historyLogin" minlength="4" maxlength="32"   required type="text" name="historySearch" class="popup__input" placeholder="Поиск по истории">
                     <span id="error-history" class="error-message"></span>
                 </div>
                 <span id="error-login" class="error-message error-message_type_server"></span>
-                <button id="submitSignIn" type="submit" class="button popup__button popup__button_is_disabled" disabled>Войти</button>
+                <button id="submitSearchHistory" type="submit" class="button popup__button popup__button_is_disabled" disabled>Поиск</button>
             </form>
         </div>
     </div>
 
 
+
 <script src="main.881a9c5f7971322e534b.js"></script>
+
 
 </body>
 </html>
