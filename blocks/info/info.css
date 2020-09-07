@@ -1,0 +1,19 @@
+@import url('./__button/info__button.css');
+@import url('./__city/info__city.css');
+@import url('./__clock/info__clock.css');
+@import url('./__map/info__map.css');
+@import url('./__time/info__time.css');
+
+.info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+@media screen and (min-width:320px) and (max-width:678px) {
+    .info {
+        align-items: center;
+    }
+ 
+
+}
